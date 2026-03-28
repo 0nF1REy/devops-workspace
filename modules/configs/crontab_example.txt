@@ -1,0 +1,2 @@
+* * * * * /home/alan/devops-workspace/learning/04_monitoramento.sh >> /home/alan/saida_nginx.txt 2>&1 
+
