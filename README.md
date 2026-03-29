@@ -17,6 +17,7 @@
 - **[📚 Cheatsheets](#cheatsheets)**
   - **[🐧 Linux CLI](#linux-cli)**
   - **[🌐 Networking](#linux-networking)**
+  - **[☁️ OCI Foundations](#oci-foundations)**
 - **[👤 Sobre o Desenvolvedor](#sobre-o-desenvolvedor)**
 - **[📜 Licença](#licenca)**
 
@@ -55,6 +56,19 @@ Este repositório é um workspace de aprendizado DevOps, focado em automação d
 <sub>Ferramentas essenciais para diagnóstico de rede e troubleshooting em ambientes Linux. Veja mais exemplos e dicas práticas no cheatsheet completo!</sub>
 
 > 💡 **Acesse o [Linux Networking Cheatsheet](./docs/guides/linux-networking-cheatsheet.md) para conferir todos os comandos, dicas e exemplos!**
+
+### ☁️ OCI Foundations <a name="oci-foundations"></a>
+
+| Serviço / Conceito | O que você aprende                               | Exemplo de Tópico              |
+| ------------------ | ------------------------------------------------ | ------------------------------ |
+| **IAM**            | Gestão de usuários, grupos e políticas de acesso | Políticas de RBAC e Tenancy    |
+| **Networking**     | Criação de VCNs, Subnets e Gateways (NAT/IGW)    | Configuração de CIDR e Peering |
+| **Compute**        | Diferença entre VM e Bare Metal                  | Instâncias Flexíveis e OCPUs   |
+| **...**            | Mais conceitos e simulados no guia completo      | —                              |
+
+<sub>Conceitos fundamentais de infraestrutura em nuvem utilizando Oracle Cloud Infrastructure. Inclui guias teóricos e questões de simulado para certificação.</sub>
+
+> 💡 **Acesse o [OCI Foundations](./docs/guides/oci-foundations.md) para conferir o conteúdo completo e simulados!**
 
 ---
 
