@@ -1,0 +1,15 @@
+# Dependências
+node_modules/
+
+# Certificados HTTPS
+server.key
+server.crt
+
+# Logs
+npm-debug.log*
+
+# Variáveis de ambiente
+.env
+
+# Sistema
+.DS_Store

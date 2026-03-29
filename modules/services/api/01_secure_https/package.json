@@ -1,0 +1,18 @@
+{
+  "name": "01_secure_https",
+  "version": "1.0.0",
+  "description": "Implementação da comunicação segura com HTTPS",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "https"
+  ],
+  "author": "Alan Ryan da Silva Domingues",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
