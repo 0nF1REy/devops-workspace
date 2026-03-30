@@ -14,10 +14,8 @@
 ## 🧭 Guia de Navegação (Índice)
 
 - **[📖 Descrição](#descricao)**
-- **[📚 Cheatsheets](#cheatsheets)**
-  - **[🐧 Linux CLI](#linux-cli)**
-  - **[🌐 Networking](#linux-networking)**
-  - **[☁️ OCI Foundations](#oci-foundations)**
+- **[🐧 Linux Admin Cheatsheet](#linux-admin)**
+- **[☁️ OCI Foundations](#oci-foundations)**
 - **[👤 Sobre o Desenvolvedor](#sobre-o-desenvolvedor)**
 - **[📜 Licença](#licenca)**
 
@@ -29,9 +27,7 @@ Este repositório é um workspace de aprendizado DevOps, focado em automação d
 
 ---
 
-## 📚 Cheatsheets <a name="cheatsheets"></a>
-
-### 🐧 Linux CLI <a name="linux-cli"></a>
+## 🐧 Linux Admin Cheatsheet <a name="linux-admin"></a>
 
 | Pacote / Serviço | O que você aprende                               | Exemplo de uso             |
 | ---------------- | ------------------------------------------------ | -------------------------- |
@@ -40,24 +36,13 @@ Este repositório é um workspace de aprendizado DevOps, focado em automação d
 | **curl**         | Baixar e enviar dados pela web                   | `curl https://example.com` |
 | **...**          | Mais comandos disponíveis no cheatsheet completo | —                          |
 
-<sub>Comandos essenciais para administração e uso diário do Linux via terminal. Veja mais exemplos e dicas práticas no cheatsheet completo!</sub>
+<sub>Comandos essenciais para administração de sistemas Linux no dia a dia. Veja mais exemplos e dicas práticas no cheatsheet completo!</sub>
 
-> 💡 **Acesse a [Linux CLI Cheatsheet](./docs/guides/linux-cli-cheatsheet.md) para conferir todos os comandos, dicas e exemplos!**
+> 💡 **Acesse o [Linux Admin Cheatsheet](./docs/guides/linux-admin-cheatsheet.md) para conferir todos os comandos, dicas e exemplos!**
 
-### 🌐 Networking <a name="linux-networking"></a>
+---
 
-| Comando        | O que você aprende                               | Exemplo de uso               |
-| -------------- | ------------------------------------------------ | ---------------------------- |
-| **ping**       | Testar conectividade e latência                  | `ping -c 4 myanimelist.net`  |
-| **traceroute** | Analisar rota dos pacotes na rede                | `traceroute myanimelist.net` |
-| **nslookup**   | Resolver nomes DNS para IP                       | `nslookup myanimelist.net`   |
-| **...**        | Mais comandos disponíveis no cheatsheet completo | —                            |
-
-<sub>Ferramentas essenciais para diagnóstico de rede e troubleshooting em ambientes Linux. Veja mais exemplos e dicas práticas no cheatsheet completo!</sub>
-
-> 💡 **Acesse o [Linux Networking Cheatsheet](./docs/guides/linux-networking-cheatsheet.md) para conferir todos os comandos, dicas e exemplos!**
-
-### ☁️ OCI Foundations <a name="oci-foundations"></a>
+## ☁️ OCI Foundations <a name="oci-foundations"></a>
 
 | Serviço / Conceito | O que você aprende                               | Exemplo de Tópico              |
 | ------------------ | ------------------------------------------------ | ------------------------------ |
