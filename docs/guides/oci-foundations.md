@@ -4,105 +4,117 @@
 
 ## 📖 Conteúdo Teórico
 
-### 1. Introdução ao Oracle Cloud Infrastructure (OCI)
+### 1. Entendendo a OCI: Introdução e Modelos
 
-O Oracle Cloud Infrastructure (OCI) é a plataforma de nuvem da Oracle que oferece uma ampla gama de serviços, incluindo computação, armazenamento, redes, bancos de dados e segurança. Ele permite que empresas executem aplicações de maneira escalável, confiável e com desempenho otimizado, aproveitando tanto recursos dedicados quanto serviços gerenciados de forma flexível.
-
-Foi desenvolvido para fornecer às empresas uma alternativa robusta às nuvens públicas tradicionais, com foco em segurança, governança e alta performance. A plataforma suporta workloads críticos de missão, oferecendo integração com soluções legadas da Oracle e compatibilidade com arquiteturas modernas baseadas em nuvem.
+O Oracle Cloud Infrastructure (OCI) é a plataforma de nuvem de próxima geração da Oracle, projetada para executar qualquer aplicação de forma mais rápida e segura por um custo menor. Ela combina a elasticidade e utilidade da nuvem pública com o controle, previsibilidade e desempenho da infraestrutura on-premises.
 
 #### 1.1 Modelos de Nuvem e Implantação
 
-- **On-premises (on-prem):** Refere-se à infraestrutura de TI mantida fisicamente dentro da própria empresa. Embora ofereça maior controle e customização, demanda altos investimentos em hardware, manutenção e pessoal especializado.
-- **Nuvem Distribuída (Distributed Cloud):** Permite que serviços de nuvem sejam executados em diferentes localidades físicas, incluindo data centers da própria empresa ou regiões externas, mantendo consistência de gerenciamento e políticas de segurança. Isso possibilita reduzir latência e cumprir requisitos regulatórios locais.
-- **Multi-Cloud:** O OCI oferece integração com outras nuvens públicas, permitindo distribuir workloads entre diferentes provedores para aproveitar pontos fortes específicos de cada plataforma e evitar a dependência exclusiva de um único fornecedor.
+- **On-premises (on-prem):** Infraestrutura física mantida localmente. Oferece controle total, mas exige altos investimentos em hardware e manutenção especializada.
+- **Nuvem Distribuída (Distributed Cloud):** Permite que serviços de nuvem sejam executados em diferentes locais (data centers do cliente ou regiões externas), mantendo a consistência de gerenciamento e reduzindo latência.
+- **Multi-Cloud:** Integração entre OCI e outros provedores (como AWS ou Azure) para aproveitar forças específicas de cada plataforma e evitar dependência de um único fornecedor.
 
 ### 2. Infraestrutura e Alta Disponibilidade
 
-A infraestrutura global do OCI é projetada para resiliência e escalabilidade, utilizando conceitos de regiões e domínios.
+A infraestrutura global do OCI é estruturada em Regiões e Domínios de Disponibilidade (AD), focando em resiliência.
 
-#### 2.1 Domínios de Falha (Fault Domains)
+- **Domínios de Falha (Fault Domains):** Agrupamentos lógicos de hardware dentro de um AD. Funcionam como um "data center virtual" para proteger contra falhas físicas ou manutenção de hardware.
+- **Escalabilidade:** Capacidade de ajustar recursos automaticamente conforme a demanda. No OCI, isso se aplica tanto a instâncias de computação quanto a clusters de containers e bancos de dados.
 
-Para proteger recursos contra falhas dentro de um domínio de disponibilidade, utiliza-se o **Domínio de Falha**. Cada domínio de falha representa um grupo lógico de hardware isolado dentro da mesma região e domínio de disponibilidade.
+### 3. Identity and Access Management (IAM)
 
-- **Funcionamento:** Distribuir instâncias entre múltiplos domínios de falha garante que falhas de hardware ou manutenção afetem apenas parte do serviço.
-- **Restrição:** No OCI, cada domínio de falha pertence a apenas um domínio de disponibilidade; ele não pode se estender entre múltiplos domínios de disponibilidade.
+O IAM é o pilar de segurança que controla quem pode acessar quais recursos.
 
-#### 2.2 Escalabilidade
+- **Tenancy:** A conta raiz e o ambiente principal da sua organização na OCI.
+- **Compartimentos:** Coleções lógicas de recursos. Servem para organizar recursos, isolar projetos e aplicar políticas de acesso específicas. **Dica:** Não use o compartimento raiz para todos os seus recursos.
+- **Autenticação (AuthN) e Autorização (AuthZ):** A AuthN verifica a identidade (senhas, MFA), enquanto a AuthZ define as permissões via políticas de grupo (RBAC).
+- **OCID (Oracle Cloud Identifier):** Um ID único e imutável atribuído a cada recurso criado na nuvem.
 
-A escalabilidade permite que aplicações ajustem automaticamente recursos de computação e containers conforme a demanda, garantindo desempenho consistente e alta disponibilidade sem desperdício de recursos.
+### 4. Networking (Rede)
 
-### 3. Segurança e Identidade (IAM)
+A **Virtual Cloud Network (VCN)** é a rede privada virtual onde seus recursos residem.
 
-O **Oracle Identity and Access Management (IAM)** gerencia identidades de usuários, grupos e recursos, controlando quem pode acessar o quê.
-
-- **Tenancy:** É a unidade central de gerenciamento, representando a conta raiz da organização na OCI. Fornece isolamento completo de dados e recursos.
-- **Autenticação (AuthN) e Autorização (AuthZ):**
-  - **AuthN:** Verifica a identidade (senha, chaves de API, MFA).
-  - **AuthZ:** Define o que o usuário pode fazer através de políticas baseadas em funções (RBAC).
-- **Grupos:** Permitem agrupar múltiplos usuários para facilitar a aplicação de políticas de acesso de forma centralizada e consistente.
-- **Compartimentos:** São coleções de recursos relacionados. A prática recomendada é criar compartimentos específicos para diferentes projetos ou equipes, evitando criar todos os recursos no compartimento raiz.
-- **OCID (Oracle Cloud Identifier):** Identificador global imutável e único para cada recurso na OCI (instâncias, bancos de dados, etc).
-
-### 4. Redes e Conectividade
-
-#### 4.1 Virtual Cloud Networking (VCN)
-
-A **VCN** é a rede virtual privada que conecta recursos de forma segura. Uma VCN pode residir apenas em uma única região, mas pode abranger vários domínios de disponibilidade.
-
-- **CIDR (Classless Inter-Domain Routing):** Usado para definir faixas de endereços IP atribuídas à rede (ex: `x.x.x.x/y`), facilitando a segmentação e evitando sobreposições.
+- **VCN e CIDR:** Cada VCN é definida por um bloco de IPs (CIDR). Ela reside em uma única região, mas pode abranger vários Domínios de Disponibilidade.
 - **Gateways:**
-  - **Gateway NAT:** Permite que instâncias em sub-redes privadas acessem a internet para saída de tráfego (downloads/updates), bloqueando tráfego de entrada não solicitado.
-  - **Gateway de Emparelhamento Local:** Deve ser configurado manualmente para conectar VCNs na mesma região (não é criado por padrão).
-- **VCN Peering:** Cria uma conexão privada direta entre VCNs sem depender de VPN ou internet pública.
-
-#### 4.2 Balanceamento de Carga
-
-Essencial para evitar sobrecarga, lentidão e pontos únicos de falha.
-
-- **Network Load Balancer:** Opera na **Camada 4 (Transporte)**, direcionando tráfego TCP/UDP com baixa latência.
-- **Benefícios:** Garante que a escalabilidade automática funcione e que a manutenção de um nó não cause downtime no serviço.
+  - **Internet Gateway:** Conectividade bidirecional com a internet.
+  - **NAT Gateway:** Acesso à internet apenas para saída (útil para patches em sub-redes privadas).
+  - **Service Gateway:** Acesso a serviços Oracle (como Object Storage) sem passar pela internet pública.
+- **Load Balancer:** Distribui o tráfego para evitar sobrecarga. O **Network Load Balancer** opera na Camada 4 (Transporte - TCP/UDP), garantindo baixa latência.
 
 ### 5. Computação e Modernização
 
-#### 5.1 OCI Compute: VM e Bare Metal
+O **OCI Compute** oferece diversas formas de executar workloads, desde servidores físicos até funções sem servidor.
 
-- **Máquinas Virtuais (VMs):** Oferecem isolamento virtual, ideais para ambientes flexíveis.
-- **Bare Metal:** Acesso direto ao hardware físico para máximo desempenho em cargas críticas.
-- **Processadores:** Estão disponíveis Intel, AMD e Ampere (ARM). O Snapdragon **não** está disponível para instâncias OCI.
-- **Instâncias Flexíveis:** Permitem personalizar especificamente a quantidade de **memória** e o número de **OCPUs**.
-- **Armazenamento:** O tipo associado para boot e volumes de dados no Compute é o **Armazenamento em Bloco**.
+- **VM vs Bare Metal:** Máquinas Virtuais (VMs) oferecem flexibilidade e isolamento virtual, enquanto Bare Metal fornece acesso direto ao hardware para performance máxima.
+- **Instâncias Flexíveis:** Permitem ajustar exatamente a quantidade de **Memória** e **OCPUs**.
+- **Containers e OKE:** O Oracle Kubernetes Engine gerencia aplicações em containers de forma escalável.
+- **Oracle Functions (Serverless):** Executa código apenas quando acionado por eventos ou chamadas HTTP. Você paga apenas pelo tempo de execução.
 
-> **Exemplo Real:** Um e-commerce roda seu banco de dados em bare metal para máxima performance em picos de vendas, enquanto usa VMs para servidores web escaláveis horizontalmente atrás de um balanceador.
+> **Exemplo Real:** Uma plataforma de streaming usa **OKE** para escalar containers de vídeo durante picos de acesso e **Functions** para processar notificações de novos pedidos de assinatura.
 
-#### 5.2 Containers e Serverless
+### 6. Armazenamento (Storage)
 
-- **Containers:** Unidades leves que empacotam a aplicação e dependências.
-- **Oracle Kubernetes Engine (OKE):** Serviço gerenciado para orquestração de containers.
-- **Oracle Functions:** Plataforma **Serverless** que executa código em resposta a eventos ou solicitações HTTP, cobrando apenas pelo tempo de execução.
+O armazenamento na OCI pode ser persistente (Block/File/Object) ou não persistente (NVMe local temporário).
 
-> **Exemplo Real (OKE):** Uma plataforma de streaming que escala containers automaticamente conforme o número de usuários simultâneos aumenta.
-> **Exemplo Real (Functions):** Um e-commerce que usa uma função para processar o estoque e enviar e-mail sempre que um novo pedido é criado.
+- **Block Volume:** Armazenamento em bloco para sistemas operacionais e bancos de dados. Oferece níveis de desempenho, incluindo o **Ultra Alto Desempenho** para cargas críticas.
+- **Object Storage:** Armazenamento de dados não estruturados (fotos, vídeos, backups).
+  - **Nível Archive:** Ideal para backups de longo prazo, com custo baixíssimo mas tempo de recuperação maior.
+  - **PAR (Pre-authenticated Request):** Fornece uma URL temporária e segura para acesso a objetos sem precisar de login.
+- **File Storage:** Sistema de arquivos compartilhado (NFS) para acesso simultâneo de várias instâncias.
+- **Migração:** Ferramentas como **Data Transfer Appliance** (físico) e **Storage Gateway** facilitam a transição de dados on-premise para a nuvem.
+
+### 7. Bancos de Dados (Database)
+
+A OCI oferece serviços gerenciados que eliminam a complexidade operacional.
+
+- **Autonomous Database:** Banco de dados autogerenciado com recursos de:
+  - **Autocondução (Self-driving):** Tuning e atualizações automáticas.
+  - **Autorreparação (Self-healing):** Recuperação automática em caso de falhas.
+- **MySQL HeatWave:** Acelera consultas analíticas (OLAP) utilizando processamento em memória, permitindo análises rápidas sem ferramentas externas.
+
+### 8. Segurança e Conformidade
+
+A segurança segue o **Modelo de Responsabilidade Compartilhada**: a Oracle protege a infraestrutura física, e o cliente protege os dados e configurações.
+
+- **WAF:** Protege aplicações contra ataques web (SQL Injection).
+- **OCI Vault:** Gerencia chaves de criptografia e segredos (senhas/tokens) de forma centralizada.
+- **Cloud Guard:** Monitora continuamente o ambiente para identificar riscos e remediar problemas automaticamente.
+- **Security Zones:** Áreas que impõem políticas rígidas de segurança desde a criação do recurso.
+
+### 9. Governança e Administração
+
+Gestão financeira e organizacional para manter o ambiente eficiente.
+
+- **Cost Management:** Ferramenta para criar orçamentos (Budgets) com alertas por e-mail quando os limites são atingidos.
+- **Cloud Advisor:** Sugere melhorias em custos, segurança e performance baseadas em inteligência.
+- **Tagging:** Uso de etiquetas para organizar recursos por projeto ou equipe, facilitando o rastreamento de custos.
+- **Limites vs Cotas:** Limites de serviço são definidos pela Oracle; Cotas de compartimento são definidas pelo usuário para restringir o uso em áreas específicas.
 
 ---
 
 ## 📝 Questões e Simulado
 
-| Pergunta                                                                                | Resposta Correta                                                                          |
-| :-------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
-| Qual recurso protege contra falhas de hardware dentro de um domínio de disponibilidade? | **Domínio de Falha (Fault Domain)**                                                       |
-| Qual afirmação sobre Domínios de Falha é FALSA?                                         | "Um único domínio de falha pode ser associado a múltiplos domínios de disponibilidade."   |
-| Qual serviço OCI NÃO é destinado a soluções multicloud?                                 | **Oracle Roving Edge Infrastructure**                                                     |
-| Qual estratégia de HA usar em um único domínio de disponibilidade?                      | Colocar recursos em diferentes **Domínios de Falha**.                                     |
-| Qual componente OCI organiza usuários em equipes para aplicar políticas?                | **Grupos**                                                                                |
-| É uma prática recomendada criar todos os recursos no compartimento raiz?                | **Não**. Deve-se usar compartimentos específicos para isolamento.                         |
-| Qual componente NÃO pertence ao IAM?                                                    | **Grupo de Segurança de Rede (NSG)**                                                      |
-| Como os recursos são identificados de forma única no OCI?                               | **OCID**                                                                                  |
-| O emparelhamento de VCN (Peering) é baseado em VPN?                                     | **Não**, é uma conexão privada direta.                                                    |
-| Qual a abrangência de uma VCN?                                                          | Reside em uma **única região**, mas pode abranger vários **domínios de disponibilidade**. |
-| Qual componente NÃO é criado por padrão em uma VCN?                                     | **Gateway de Emparelhamento Local Padrão**                                                |
-| Em qual camada do modelo OSI opera o Balanceador de Carga de Rede?                      | **Camada 4 (Transporte)**                                                                 |
-| Qual gateway permite acesso à internet para instâncias privadas apenas para saída?      | **Gateway NAT**                                                                           |
-| Qual o propósito do Oracle Cloud Infrastructure Functions?                              | Executar código em resposta a **eventos ou solicitações HTTP** sem gerenciar servidores.  |
-| Quais parâmetros são personalizáveis em instâncias de computação flexíveis?             | **Memória e OCPUs**.                                                                      |
-| Qual tipo de armazenamento é associado ao serviço OCI Compute?                          | **Armazenamento em Bloco**.                                                               |
-| Qual processador NÃO está disponível no OCI Compute?                                    | **Snapdragon**.                                                                           |
+| Pergunta                                                                      | Resposta Correta                                             |
+| :---------------------------------------------------------------------------- | :----------------------------------------------------------- |
+| **Proteção contra falha de hardware em um único AD?**                         | **Domínio de Falha (Fault Domain)**.                         |
+| **Afirmação FALSA sobre Domínios de Falha?**                                  | "Um domínio de falha pode ser associado a múltiplos ADs".    |
+| **Serviço NÃO destinado a multicloud?**                                       | **Oracle Roving Edge Infrastructure**.                       |
+| **Como organizar usuários em equipes no IAM?**                                | Através de **Grupos**.                                       |
+| **Identificador único de recursos OCI?**                                      | **OCID**.                                                    |
+| **Qual gateway permite acesso de saída para internet em sub-redes privadas?** | **Gateway NAT**.                                             |
+| **Camada do Network Load Balancer?**                                          | **Camada 4 (Transporte)**.                                   |
+| **O que pode ser personalizado em instâncias flexíveis?**                     | **Memória e OCPUs**.                                         |
+| **Propósito do OCI Functions?**                                               | Executar código em resposta a **eventos ou HTTP**.           |
+| **Afirmação FALSA sobre Armazenamento Archive?**                              | "Bucket Archive pode ser atualizado para Standard".          |
+| **Como o Block Volume garante durabilidade?**                                 | Através de **Replicação**.                                   |
+| **Nível de performance para DBs exigentes no Block Volume?**                  | **Ultra alto desempenho**.                                   |
+| **Função da URL Pré-Autenticada (PAR)?**                                      | Fornecer **acesso temporário e seguro** a um objeto.         |
+| **Recurso de ajuste automático do Autonomous DB?**                            | **Autocondução (Self-driving)**.                             |
+| **Como o MySQL HeatWave acelera performance?**                                | Usando **armazenamento de dados em memória**.                |
+| **Tipo de processamento do HeatWave?**                                        | **Processamento Analítico Online (OLAP)**.                   |
+| **Vantagem das Zonas de Segurança?**                                          | Garantir adesão às **melhores práticas e políticas**.        |
+| **Componente que NÃO pertence ao Cloud Guard?**                               | **Alvos** (Targets).                                         |
+| **Propósito do OCI Vault?**                                                   | Gerenciar **chaves de criptografia e segredos**.             |
+| **Diferença entre Limites e Cotas?**                                          | Limites são da Oracle; **Cotas são definidas pelo usuário**. |
+| **Fator que NÃO costuma influenciar o preço na OCI?**                         | **Escolha da região** (Política de preço global).            |
+| **Como receber avisos sobre gastos?**                                         | Configurar **Notificações/Alertas de orçamento**.            |
