@@ -23,15 +23,21 @@
 
 ---
 
-## 🌐 Rede e Transferência
+## 🌐 Análise e Ferramentas de Rede
 
-| Comando    | Descrição                            | Exemplo de uso               |
-| ---------- | ------------------------------------ | ---------------------------- |
-| curl       | Transferência de dados via URL       | `curl https://example.com`   |
-| ping       | Testa conectividade e latência       | `ping -c 4 myanimelist.net`  |
-| traceroute | Mostra o caminho dos pacotes na rede | `traceroute myanimelist.net` |
-| nslookup   | Consulta DNS para resolver nomes     | `nslookup myanimelist.net`   |
-| dig        | Consulta DNS avançada com detalhes   | `dig myanimelist.net`        |
+| Comando    | Descrição                                                  | Exemplo de uso                   |
+| ---------- | ---------------------------------------------------------- | -------------------------------- |
+| curl       | Transfere dados de/para URLs (HTTP, FTP, etc.)             | `curl https://example.com`       |
+| ping       | Testa conectividade e mede latência (RTT) com um host      | `ping -c 4 example.com`          |
+| traceroute | Mostra o caminho (saltos) dos pacotes até o destino        | `traceroute example.com`         |
+| nslookup   | Resolve nomes de domínio para IPs (consulta DNS)           | `nslookup example.com`           |
+| dig        | Consulta DNS avançada com respostas detalhadas             | `dig example.com`                |
+| ipcalc     | Calcula rede, broadcast e faixa de IPs a partir de um CIDR | `ipcalc 192.168.0.100/24`        |
+| ip a       | Exibe interfaces de rede e endereços IP configurados       | `ip a`                           |
+| ip route   | Mostra a tabela de roteamento do sistema                   | `ip route`                       |
+| ip neigh   | Exibe a tabela ARP (IP ↔ MAC) e estado dos vizinhos        | `ip neigh`                       |
+| arp-scan   | Descobre hosts ativos na rede local via ARP                | `arp-scan --localnet`            |
+| nmap -sn   | Detecta hosts ativos (ping scan) sem escanear portas       | `nmap -sn 192.168.0.0/24 --open` |
 
 ---
 
