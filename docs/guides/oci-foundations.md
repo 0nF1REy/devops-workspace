@@ -94,27 +94,45 @@ Gestão financeira e organizacional para manter o ambiente eficiente.
 
 ## 📝 Questões e Simulado
 
-| Pergunta                                                                      | Resposta Correta                                             |
-| :---------------------------------------------------------------------------- | :----------------------------------------------------------- |
-| **Proteção contra falha de hardware em um único AD?**                         | **Domínio de Falha (Fault Domain)**.                         |
-| **Afirmação FALSA sobre Domínios de Falha?**                                  | "Um domínio de falha pode ser associado a múltiplos ADs".    |
-| **Serviço NÃO destinado a multicloud?**                                       | **Oracle Roving Edge Infrastructure**.                       |
-| **Como organizar usuários em equipes no IAM?**                                | Através de **Grupos**.                                       |
-| **Identificador único de recursos OCI?**                                      | **OCID**.                                                    |
-| **Qual gateway permite acesso de saída para internet em sub-redes privadas?** | **Gateway NAT**.                                             |
-| **Camada do Network Load Balancer?**                                          | **Camada 4 (Transporte)**.                                   |
-| **O que pode ser personalizado em instâncias flexíveis?**                     | **Memória e OCPUs**.                                         |
-| **Propósito do OCI Functions?**                                               | Executar código em resposta a **eventos ou HTTP**.           |
-| **Afirmação FALSA sobre Armazenamento Archive?**                              | "Bucket Archive pode ser atualizado para Standard".          |
-| **Como o Block Volume garante durabilidade?**                                 | Através de **Replicação**.                                   |
-| **Nível de performance para DBs exigentes no Block Volume?**                  | **Ultra alto desempenho**.                                   |
-| **Função da URL Pré-Autenticada (PAR)?**                                      | Fornecer **acesso temporário e seguro** a um objeto.         |
-| **Recurso de ajuste automático do Autonomous DB?**                            | **Autocondução (Self-driving)**.                             |
-| **Como o MySQL HeatWave acelera performance?**                                | Usando **armazenamento de dados em memória**.                |
-| **Tipo de processamento do HeatWave?**                                        | **Processamento Analítico Online (OLAP)**.                   |
-| **Vantagem das Zonas de Segurança?**                                          | Garantir adesão às **melhores práticas e políticas**.        |
-| **Componente que NÃO pertence ao Cloud Guard?**                               | **Alvos** (Targets).                                         |
-| **Propósito do OCI Vault?**                                                   | Gerenciar **chaves de criptografia e segredos**.             |
-| **Diferença entre Limites e Cotas?**                                          | Limites são da Oracle; **Cotas são definidas pelo usuário**. |
-| **Fator que NÃO costuma influenciar o preço na OCI?**                         | **Escolha da região** (Política de preço global).            |
-| **Como receber avisos sobre gastos?**                                         | Configurar **Notificações/Alertas de orçamento**.            |
+| Pergunta                                                                       | Resposta Correta                                                          |
+| :----------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
+| **Vantagem principal do escalonamento vertical (Compute)?**                    | **Aumento de performance com mais OCPUs e memória**.                      |
+| **Função primária do Auto-Tiering no Object Storage?**                         | Reduzir custos movendo dados entre **Standard e Infrequent Access**.      |
+| **Diferença entre Load Balancer e Network Load Balancer?**                     | Load Balancer atua na **Camada 7**; Network na **Camada 4**.              |
+| **O que o recurso "Auto-Tiering" faz no Object Storage?**                      | Move dados para níveis mais baratos baseando-se em **padrões de acesso**. |
+| **Papel do Dynamic Routing Gateway (DRG)?**                                    | Caminho de tráfego entre VCN e **on-premises ou outra VCN**.              |
+| **Como as quotas de compartimento são aplicadas?**                             | Em uma base **por compartimento** (per-compartment).                      |
+| **Como o modelo BYOL ajuda a economizar?**                                     | Permite usar **licenças de software existentes** na OCI.                  |
+| **Ferramenta para analisar padrões de gastos ao longo do tempo?**              | **Cost Analysis** (Análise de Custos).                                    |
+| **Qual componente NÃO faz parte de uma política IAM?**                         | **Encryption** (Criptografia) ou Data backup frequency.                   |
+| **No modelo de responsabilidade compartilhada, quem garante os dados?**        | **O cliente**.                                                            |
+| **Afirmação FALSA sobre compartimentos?**                                      | "Eles armazenam e gerenciam chaves de criptografia e segredos." (Falso).  |
+| **Por que escolher uma Região OCI próxima aos usuários?**                      | Para **minimizar a latência** e melhorar a performance.                   |
+| **Oferta que permite rodar serviços OCI no seu próprio data center?**          | **OCI Dedicated Region**.                                                 |
+| **O que melhor descreve o Autoscaling do Compute?**                            | Ajusta o número de instâncias baseado em **métricas definidas**.          |
+| **Tipo de armazenamento associado diretamente a instâncias Compute?**          | **Block Storage** (Armazenamento em Bloco).                               |
+| **Política de balanceamento de carga suportada pelo Load Balancer?**           | **Weighted Round Robin**.                                                 |
+| **Componente da política IAM que define a quem ela se aplica?**                | **Principal**.                                                            |
+| **Protocolo usado pelo File Storage Service para acesso?**                     | **NFS (Network File System)**.                                            |
+| **Gateway que acessa serviços Oracle sem usar a internet pública?**            | **Service Gateway**.                                                      |
+| **Propósito principal de configurar Budgets (Orçamentos)?**                    | **Monitorar e controlar gastos** em serviços OCI.                         |
+| **Qual NÃO é um tipo de instância Compute na OCI?**                            | **Nano instances**.                                                       |
+| **Recurso para migrar instâncias ligadas entre servidores físicos?**           | **Live Migration**.                                                       |
+| **Vantagem das OCI Security Zones para gestão de recursos?**                   | Aplicar **configurações de segurança baseadas em melhores práticas**.     |
+| **Objetivo de distribuir recursos entre múltiplos ADs?**                       | Melhorar a **tolerância a falhas e alta disponibilidade**.                |
+| **Serviço OCI NÃO projetado para uso com múltiplos provedores?**               | **Oracle Roving Edge Infrastructure**.                                    |
+| **Nível de Object Storage para dados raramente acessados?**                    | **Archive Storage**.                                                      |
+| **Termo para combinação de shape, imagem e metadados de instância?**           | **Instance Configuration**.                                               |
+| **Aumentar o tamanho de um Block Volume sem downtime?**                        | **Online Resizing**.                                                      |
+| **Tipo de escalonamento feito adicionando instâncias a um pool?**              | **Horizontal Scaling** (Escalonamento Horizontal).                        |
+| **Diferença entre Security Lists e Network Security Groups (NSGs)?**           | Security Lists aplicam-se a **subnets**; NSGs a **VNICs individuais**.    |
+| **Característica chave do OCI Block Volume?**                                  | **Replicado automaticamente dentro de um AD** para alta durabilidade.     |
+| **Recurso que impede mudanças arriscadas ou não conformes?**                   | **OCI Security Zones**.                                                   |
+| **Componente que controla tráfego entre subnets dentro da mesma VCN?**         | **Security Lists**.                                                       |
+| **Função principal da Route Table (Tabela de Roteamento)?**                    | Direcionar o tráfego da rede para o **destino correto**.                  |
+| **Oferta para conformidade regulatória rodando na casa do cliente?**           | **OCI Dedicated Region**.                                                 |
+| **Serviço que protege apps contra SQL Injection e Cross-site scripting?**      | **Web Application Firewall (WAF)**.                                       |
+| **O que pode ser customizado em uma VM de formato flexível (Flexible Shape)?** | **Número de OCPUs e quantidade de memória**.                              |
+| **Tipo de transferência de dados que geralmente é gratuita?**                  | **Ingress data transfer** (Transferência de entrada).                     |
+| **Quem protege dados e aplicações no modelo compartilhado?**                   | **O Cliente**.                                                            |
+| **Serviço que monitora continuamente riscos de segurança?**                    | **Cloud Guard**.                                                          |
