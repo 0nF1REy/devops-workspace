@@ -2,7 +2,29 @@
 
 [← Voltar ao README](../../README.md)
 
+---
+
+## 🧭 Guia de Navegação (Índice)
+
+- **[📖 Conteúdo Teórico](#conteúdo-teórico)**
+  - **[1. Entendendo a OCI: Introdução e Modelos](#1-entendendo-a-oci-introdução-e-modelos)**
+  - **[2. Infraestrutura e Alta Disponibilidade](#2-infraestrutura-e-alta-disponibilidade)**
+  - **[3. Identity and Access Management (IAM)](#3-identity-and-access-management-iam)**
+  - **[4. Networking (Rede)](#4-networking-rede)**
+  - **[5. Computação e Modernização](#5-computação-e-modernização)**
+  - **[6. Armazenamento (Storage)](#6-armazenamento-storage)**
+  - **[7. Bancos de Dados (Database)](#7-bancos-de-dados-database)**
+  - **[8. Segurança e Conformidade](#8-segurança-e-conformidade)**
+  - **[9. Governança e Administração](#9-governança-e-administração)**
+- **[📝 Questões e Simulado](#questões-e-simulado)**
+
+---
+
+<a name="conteúdo-teórico"></a>
+
 ## 📖 Conteúdo Teórico
+
+<a name="1-entendendo-a-oci-introdução-e-modelos"></a>
 
 ### 1. Entendendo a OCI: Introdução e Modelos
 
@@ -14,12 +36,16 @@ O Oracle Cloud Infrastructure (OCI) é a plataforma de nuvem de próxima geraç�
 - **Nuvem Distribuída (Distributed Cloud):** Permite que serviços de nuvem sejam executados em diferentes locais (data centers do cliente ou regiões externas), mantendo a consistência de gerenciamento e reduzindo latência.
 - **Multi-Cloud:** Integração entre OCI e outros provedores (como AWS ou Azure) para aproveitar forças específicas de cada plataforma e evitar dependência de um único fornecedor.
 
+<a name="2-infraestrutura-e-alta-disponibilidade"></a>
+
 ### 2. Infraestrutura e Alta Disponibilidade
 
 A infraestrutura global do OCI é estruturada em Regiões e Domínios de Disponibilidade (AD), focando em resiliência.
 
 - **Domínios de Falha (Fault Domains):** Agrupamentos lógicos de hardware dentro de um AD. Funcionam como um "data center virtual" para proteger contra falhas físicas ou manutenção de hardware.
 - **Escalabilidade:** Capacidade de ajustar recursos automaticamente conforme a demanda. No OCI, isso se aplica tanto a instâncias de computação quanto a clusters de containers e bancos de dados.
+
+<a name="3-identity-and-access-management-iam"></a>
 
 ### 3. Identity and Access Management (IAM)
 
@@ -29,6 +55,8 @@ O IAM é o pilar de segurança que controla quem pode acessar quais recursos.
 - **Compartimentos:** Coleções lógicas de recursos. Servem para organizar recursos, isolar projetos e aplicar políticas de acesso específicas. **Dica:** Não use o compartimento raiz para todos os seus recursos.
 - **Autenticação (AuthN) e Autorização (AuthZ):** A AuthN verifica a identidade (senhas, MFA), enquanto a AuthZ define as permissões via políticas de grupo (RBAC).
 - **OCID (Oracle Cloud Identifier):** Um ID único e imutável atribuído a cada recurso criado na nuvem.
+
+<a name="4-networking-rede"></a>
 
 ### 4. Networking (Rede)
 
@@ -41,6 +69,8 @@ A **Virtual Cloud Network (VCN)** é a rede privada virtual onde seus recursos r
   - **Service Gateway:** Acesso a serviços Oracle (como Object Storage) sem passar pela internet pública.
 - **Load Balancer:** Distribui o tráfego para evitar sobrecarga. O **Network Load Balancer** opera na Camada 4 (Transporte - TCP/UDP), garantindo baixa latência.
 
+<a name="5-computação-e-modernização"></a>
+
 ### 5. Computação e Modernização
 
 O **OCI Compute** oferece diversas formas de executar workloads, desde servidores físicos até funções sem servidor.
@@ -51,6 +81,8 @@ O **OCI Compute** oferece diversas formas de executar workloads, desde servidore
 - **Oracle Functions (Serverless):** Executa código apenas quando acionado por eventos ou chamadas HTTP. Você paga apenas pelo tempo de execução.
 
 > **Exemplo Real:** Uma plataforma de streaming usa **OKE** para escalar containers de vídeo durante picos de acesso e **Functions** para processar notificações de novos pedidos de assinatura.
+
+<a name="6-armazenamento-storage"></a>
 
 ### 6. Armazenamento (Storage)
 
@@ -63,6 +95,8 @@ O armazenamento na OCI pode ser persistente (Block/File/Object) ou não persiste
 - **File Storage:** Sistema de arquivos compartilhado (NFS) para acesso simultâneo de várias instâncias.
 - **Migração:** Ferramentas como **Data Transfer Appliance** (físico) e **Storage Gateway** facilitam a transição de dados on-premise para a nuvem.
 
+<a name="7-bancos-de-dados-database"></a>
+
 ### 7. Bancos de Dados (Database)
 
 A OCI oferece serviços gerenciados que eliminam a complexidade operacional.
@@ -72,6 +106,8 @@ A OCI oferece serviços gerenciados que eliminam a complexidade operacional.
   - **Autorreparação (Self-healing):** Recuperação automática em caso de falhas.
 - **MySQL HeatWave:** Acelera consultas analíticas (OLAP) utilizando processamento em memória, permitindo análises rápidas sem ferramentas externas.
 
+<a name="8-segurança-e-conformidade"></a>
+
 ### 8. Segurança e Conformidade
 
 A segurança segue o **Modelo de Responsabilidade Compartilhada**: a Oracle protege a infraestrutura física, e o cliente protege os dados e configurações.
@@ -80,6 +116,8 @@ A segurança segue o **Modelo de Responsabilidade Compartilhada**: a Oracle prot
 - **OCI Vault:** Gerencia chaves de criptografia e segredos (senhas/tokens) de forma centralizada.
 - **Cloud Guard:** Monitora continuamente o ambiente para identificar riscos e remediar problemas automaticamente.
 - **Security Zones:** Áreas que impõem políticas rígidas de segurança desde a criação do recurso.
+
+<a name="9-governança-e-administração"></a>
 
 ### 9. Governança e Administração
 
@@ -91,6 +129,8 @@ Gestão financeira e organizacional para manter o ambiente eficiente.
 - **Limites vs Cotas:** Limites de serviço são definidos pela Oracle; Cotas de compartimento são definidas pelo usuário para restringir o uso em áreas específicas.
 
 ---
+
+<a name="questões-e-simulado"></a>
 
 ## 📝 Questões e Simulado
 
